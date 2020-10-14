@@ -1,9 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import Canvas from './visualsObjects/canvas.js'
-
+import './App.css';
 import MotionDemo from './components/MotionDemo';
-
 
 function App() {
   return (
