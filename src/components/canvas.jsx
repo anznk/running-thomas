@@ -8,7 +8,7 @@ const Canvas = props => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#D2691E';
     ctx.beginPath();
-    ctx.arc(frameCount, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+    ctx.arc(frameCount, 600, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
     ctx.fill();
   }
   
@@ -17,12 +17,14 @@ const Canvas = props => {
     
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
-    let frameCount = 0
+    let frameCount = 1200
     let animationFrameId
+    canvas.height = 700;
+    canvas.width = 1300;
     
     //Our draw came here
     const render = () => {
-      frameCount++
+      frameCount--
       draw(context, frameCount)
       animationFrameId = window.requestAnimationFrame(render)
     }
