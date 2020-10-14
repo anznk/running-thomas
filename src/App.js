@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import MotionDemo from './components/MotionDemo';
-
+import Canvas from './components/canvas.jsx'
 function App() {
   return (
     <div className="App">
+      <header className="App-header">
+        <p>
+        </p>
+      </header>
+      <Canvas />
     <MotionDemo />
     </div>
   );
