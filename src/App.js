@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
 import MotionDemo from './components/MotionDemo';
-
+import Canvas from './components/canvas.js'
 function App() {
   return (
     <div className="App">
@@ -9,6 +8,7 @@ function App() {
         <p>
         </p>
       </header>
+      <Canvas />
     <MotionDemo />
     </div>
   );
