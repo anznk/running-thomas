@@ -8,7 +8,7 @@ const Canvas = props => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#D2691E';
     ctx.beginPath();
-    ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+    ctx.arc(frameCount, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
     ctx.fill();
   }
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import MotionDemo from './components/MotionDemo';
-import Canvas from './components/canvas.js'
+import Canvas from './components/canvas.jsx'
 function App() {
   return (
     <div className="App">

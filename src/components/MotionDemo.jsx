@@ -1,6 +1,6 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
-import Canvas from './canvas.js'
+import Canvas from './canvas.jsx'
 
 function MotionDemo() {
   return (
@@ -12,7 +12,7 @@ function MotionDemo() {
             WebkitTransform: `translate3d(${interpolatingStyle.x}px, 0, 0)`,
           }}
         >
-        <Canvas />
+        Test
         </div>
       }
     </Motion>
