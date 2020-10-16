@@ -5,7 +5,7 @@ const Canvas = props => {
   const canvasRef = useRef(null)
   const [x, setX] = useState(props.x)
   const [y, setY] = useState(props.y)
-  
+
   const draw = (ctx, frameCount, x, y) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
     ctx.fillStyle = '#D2691E';
@@ -17,7 +17,6 @@ const Canvas = props => {
   
   // useEffect is executed when 'render' is called on the Canvas element
   useEffect(() => {
-    
     const interval = setInterval(() => {
       setX(x => parseInt(x + 1) % window.innerHeight)
       setY(y => parseInt(y + 1) % window.innerWidth)
@@ -35,9 +34,7 @@ const Canvas = props => {
     //Our draw came here
     const render = () => {
       frameCount--
-      
       draw(context, frameCount, parseInt(x % canvas.width), parseInt(y % canvas.height))
-      
       animationFrameId = window.requestAnimationFrame(render)
     }
     
@@ -50,8 +47,7 @@ const Canvas = props => {
   }, [draw])
   
   return (
-  <canvas ref={canvasRef} {...props}/>
-  
+    <canvas ref={canvasRef} {...props}/>
   )
 }
 
