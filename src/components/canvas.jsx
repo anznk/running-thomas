@@ -1,12 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react'
-// <name of function> <arguments> { }
 
+// <name of function> <arguments> { }
 const Canvas = props => {
   const canvasRef = useRef(null)
   const [x, setX] = useState(props.x)
   const [y, setY] = useState(props.y)
-
-
   
   const draw = (ctx, frameCount, x, y) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
@@ -17,8 +15,6 @@ const Canvas = props => {
     ctx.fill();
   }
   
-
-
   // useEffect is executed when 'render' is called on the Canvas element
   useEffect(() => {
     
@@ -27,7 +23,7 @@ const Canvas = props => {
       setY(y => parseInt(y + 1) % window.innerWidth)
       console.log(parseInt(x % canvas.width))
       console.log(parseInt(y % canvas.height))
-    },15)
+    },7)
 
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
@@ -48,7 +44,7 @@ const Canvas = props => {
     render()
     
     return () => {
-      //window.cancelAnimationFrame(animationFrameId)
+      window.cancelAnimationFrame(animationFrameId)
       clearInterval(interval)
     }
   }, [draw])
