@@ -19,7 +19,7 @@ const Canvas = props => {
   useEffect(() => {
     const interval = setInterval(() => {
       setX(x => parseInt(x + 1) % window.innerHeight)
-      setY(y => parseInt(y + 1) % window.innerWidth)
+      //setY(y => parseInt(y + 1) % window.innerWidth)
       console.log(parseInt(x % canvas.width))
       console.log(parseInt(y % canvas.height))
     },7)
@@ -28,7 +28,7 @@ const Canvas = props => {
     const context = canvas.getContext('2d')
     let frameCount = 200
     let animationFrameId
-    canvas.height = window.innerHeight;
+    canvas.height = 40; //window.innerHeight;
     canvas.width = window.innerWidth;
     
     //Our draw came here
