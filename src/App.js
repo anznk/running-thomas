@@ -10,7 +10,6 @@ function App() {
         </p>
       </header>
         <Canvas x='200' y='220'/>
-        <Canvas x='220' y='220'/>
     </div>
   );
 }
