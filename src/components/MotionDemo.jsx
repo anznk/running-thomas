@@ -1,6 +1,6 @@
 import React from 'react';
 import { Motion, spring } from 'react-motion';
-import Canvas from './canvas.jsx'
+import Canvas from './GameObject.jsx'
 import '../motionDemo.css'
 
 function MotionDemo() {
