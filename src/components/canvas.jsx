@@ -1,42 +1,33 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
+import { Context } from "../Context";
 // <name of function> <arguments> { }
-const Canvas = props => {
+
+export const Canvas = props => {
+  const appContext = useContext(Context);
+  const { x } = appContext;
+  console.log("x",x);
   
-  const canvasRef = useRef(null)
-  
-  const draw = (ctx, frameCount) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+  const canvasRef = useRef(null);
+  // const [x, setX] = useState(props.x);
+  // const [y, setY] = useState(props.y);
+
+  const draw = (ctx, frameCount, x, y) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.fillStyle = '#D2691E';
     ctx.beginPath();
-    ctx.arc(frameCount, 600, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+    //ctx.arc(frameCount, 600, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+    ctx.arc(x, 100, 20*Math.sin(10*0.05)**2, 0, 2*Math.PI);
     ctx.fill();
   }
   
-  // useEffect is executed when 'render' is called on the Canvas element
-  useEffect(() => {
+  return (
     
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
-    let frameCount = 1200
-    let animationFrameId
-    canvas.height = 700;
-    canvas.width = 1300;
+      <div>
+      <canvas ref={canvasRef} {...props}/>
+      </div>
     
-    //Our draw came here
-    const render = () => {
-      frameCount--
-      draw(context, frameCount)
-      animationFrameId = window.requestAnimationFrame(render)
-    }
-    
-    render()
-    
-    return () => {
-      window.cancelAnimationFrame(animationFrameId)
-    }
-  }, [draw])
   
-  return <canvas ref={canvasRef} {...props}/>
+  )
 }
 
 export default Canvas
