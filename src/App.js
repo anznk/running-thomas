@@ -5,8 +5,8 @@ import {GameTimer} from './game-engine/GameTimer.jsx'
 function App() {
   return (
     <div>
-      {/* <GameProvider/> */}
-        <GameTimer />
+      <GameProvider/> 
+        {/* <GameTimer /> */}
     </div>
   );
 }
