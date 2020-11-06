@@ -32,9 +32,7 @@ const Jump = props => {
       }
 
       rectangle.y_velocity += 2.0;// gravity
-      rectangle.x += rectangle.x_velocity;
       rectangle.y += rectangle.y_velocity;
-      rectangle.x_velocity *= 0.9;// friction
       rectangle.y_velocity *= 1.1;// friction
 
       if (rectangle.y > 160) {
@@ -42,16 +40,7 @@ const Jump = props => {
         rectangle.y = 160;
         rectangle.y_velocity = 0;
       }
-
-      context.fillStyle = "white";
-      context.fillRect(0, 0, 180, 100);// x, y, width, height
-      context.fillStyle = "#ff0000";// hex for red
-      context.beginPath();
       context.drawImage(img, rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-      context.fill();
-      context.beginPath();
-      context.stroke();
-
       // call update when the browser is ready to draw again
       window.requestAnimationFrame(loop);
     };
