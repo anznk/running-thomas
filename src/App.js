@@ -1,17 +1,13 @@
 import React from 'react';
-import MotionDemo from './components/MotionDemo';
-import Canvas from './components/canvas.jsx'
+import {GameProvider} from './GameProvider.jsx'
+import {GameTimer} from './game-engine/GameTimer.jsx'
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-        </p>
-      </header>
-      <Canvas />
-    <MotionDemo />
+    <div>
+      {/* <GameProvider/> */}
+        <GameTimer />
     </div>
   );
 }
-
 export default App;
