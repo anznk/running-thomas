@@ -1,15 +1,10 @@
 import React from 'react';
-import MotionDemo from './components/MotionDemo';
-import Canvas from './components/canvas.jsx'
+import {GameProvider} from './GameProvider.jsx'
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-        </p>
-      </header>
-      <Canvas />
-    <MotionDemo />
+    <div>
+        <GameProvider/>
     </div>
   );
 }
