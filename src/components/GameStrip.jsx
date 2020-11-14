@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect } from 'react'
-import {GameObjects} from '../GameProvider.jsx'
+import {GameProviderContext} from '../GameProvider.jsx'
 
 const drawCircle = (ctx, x,y) =>{
     //ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -10,9 +10,10 @@ const drawCircle = (ctx, x,y) =>{
 }
 
 const RunnerRoad = (props) => {
-    let RunnerRoadCanvasRef = useRef(null)
+    //let RunnerRoadCanvasRef = useRef(null)
 
-    const gameObjects = useContext(GameObjects)
+    const gameProviderContext = useContext(GameProviderContext);
+    const {gameObjects, canvasRef} = gameProviderContext;
 
     const draw = (ctx) => {
        for(let i = 0; i < gameObjects.objects.length; i++){
@@ -25,7 +26,7 @@ const RunnerRoad = (props) => {
     }
 
     useEffect(() => {
-        const canvas = RunnerRoadCanvasRef.current;
+        const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
         canvas.height = 500;
@@ -36,7 +37,8 @@ const RunnerRoad = (props) => {
 
     
     return (
-        <canvas ref={RunnerRoadCanvasRef} {...props} id='gamestrip'></canvas>
+        // <canvas ref={RunnerRoadCanvasRef} {...props} id='gamestrip'></canvas>
+        null
     )
 }
 
