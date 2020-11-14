@@ -1,13 +1,16 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useContext} from 'react';
 import Thomas from '../images/Thomas.jpg'
-
-
+import {GameProviderContext} from '../GameProvider.jsx'
 
 let flgUp = false;
 let flgJump = false;
+
 const Jump = props => {
   window.addEventListener('keyup', e => { flgUp = true });
-  const canvasRef = useRef(null);
+
+  const gameProviderContext = useContext(GameProviderContext);
+  const {a, canvasRef} = gameProviderContext;
+  
   let rectangle = {
     height:30,
     jumping:false,
@@ -53,7 +56,7 @@ const Jump = props => {
   return(
     <>
     <canvas
-      ref={canvasRef} 
+      // ref={canvasRef} 
       style={{ width: window.innerWidth, height: window.innerHeight }}
     />
     </>

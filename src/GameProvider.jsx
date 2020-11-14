@@ -1,14 +1,19 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef, useContext} from "react";
 //import GameObject from "./components/GameObject.jsx";
 import RunnerRoad from "./components/GameStrip.jsx";
+import Jump from './components/Jump.jsx';
 
 
-const GameObjects = React.createContext();
+const GameProviderContext = React.createContext();
+
 
 const GameProvider = (props) => {　
   const [x1, setX1] = useState(100)
   const [x2, setX2] = useState(200)
 
+  const gameProviderCanvasRef = useRef(null);
+  let canvasRef = gameProviderCanvasRef;
+  
   
   let gameObjects = {
     objects:[
@@ -32,11 +37,14 @@ const GameProvider = (props) => {　
   }, []);
   
   return (
-    <GameObjects.Provider value = {gameObjects}>
+    <canvas ref={canvasRef} {...props} id='gamestrip'>
+      <GameProviderContext.Provider value = {{gameObjects, canvasRef}}>
         <RunnerRoad></RunnerRoad>
-      </GameObjects.Provider>
+        <Jump></Jump>
+      </GameProviderContext.Provider>
+    </canvas>
   )
 };
-const GameConsumer = GameObjects.Consumer;
-export { GameProvider, GameConsumer, GameObjects };
+const GameConsumer = GameProviderContext.Consumer;
+export { GameProvider, GameConsumer, GameProviderContext };
 //export default Context
