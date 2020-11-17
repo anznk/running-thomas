@@ -19,8 +19,7 @@ const RunnerRoad = (props) => {
        for(let i = 0; i < gameObjects.objects.length; i++){
            let x = gameObjects.objects[i].coordinates['x'];
            let y = gameObjects.objects[i].coordinates['y'];
-           
-           console.log('x: ' + x, 'y: '+ y);
+        //    console.log('x: ' + x, 'y: '+ y);
            drawCircle(ctx, x,y);
        }
     }

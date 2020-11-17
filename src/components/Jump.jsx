@@ -23,8 +23,8 @@ const Jump = props => {
     const loop = () => {
       const canvas = canvasRef.current;
       const context = canvas.getContext('2d');
-      context.canvas.height = 200;
-      context.canvas.width = 1200; 
+      // context.canvas.height = 200;
+      // context.canvas.width = 1200; 
       const img = new Image();
       img.src = Thomas;
       
